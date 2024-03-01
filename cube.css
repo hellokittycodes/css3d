@@ -19,22 +19,35 @@ body{
     perspective: 1000px; 
 }
 
-.box 
-{
-    height: 250px; 
-    width: 250px; 
-    position : absolute; 
-    top : 100px; 
-    left: 100px; 
-    transform-style: preserve-3d; 
-    animation: animate 5s infinite; 
+.box {
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    transform-style: preserve-3d;
+    animation: animate 5s infinite;
+    transform: rotateX(45deg) rotateY(-45deg); /* Add initial rotation */
 }
 
 @keyframes animate {
-    0%{
-        transform: rotateX(45deg) rotateY (-45deg); 
+    0% {
+        transform: rotateX(45deg) rotateY(-45deg);
+    }
+    25% {
+        transform: rotateX(-45deg) rotateY(-45deg);
+    }
+    50% {
+        transform: rotateX(45deg) rotateY(45deg);
+    }
+    75% {
+        transform: rotateX(-45deg) rotateY(45deg);
+    }
+    100% {
+        transform: rotateX(45deg) rotateY(-45deg);
     }
 }
+
 .card 
 {
     height:250px; 
