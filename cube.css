@@ -6,7 +6,7 @@
 }
 body{
     height:100vh; 
-    background: radial-gradient(rgb(0,100,150), rgb(100, 9, 250), rgb(203, 200, 9))
+    background: radial-gradient(rgb(224, 55, 151), #f9054e, #ffa3cb)
 }
 .container
 {
