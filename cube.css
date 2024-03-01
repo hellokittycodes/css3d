@@ -27,9 +27,14 @@ body{
     top : 100px; 
     left: 100px; 
     transform-style: preserve-3d; 
-    transform: rotateY(30deg); 
+    animation: animate 5s infinite; 
 }
 
+@keyframes animate {
+    0%{
+        transform: rotateX(45deg) rotateY (-45deg); 
+    }
+}
 .card 
 {
     height:250px; 
@@ -43,31 +48,38 @@ body{
     box-sizing: border-box; 
     position : absolute; 
 }
-#front
-{
-    transform: translateZ(125px); 
+#Front {
+    transform: translateZ(125px);
 }
-#back
-{
-    transform: translateZ(-125px); 
+#Back {
+    transform: translateZ(-125px);
 }
-#left
-{
-    right: 125px; 
-    transform: rotateY(90deg); 
+#Left {
+    right: 125px;
+    transform: rotateY(90deg);
 }
-#right
-{
-    left: 125px; 
-    transform: rotateY(90deg); 
+#Right {
+    left: 125px;
+    transform: rotateY(90deg);
 }
-#top
-{
-    bottom: 125px; 
-    transform: rotateX(90deg); 
+#Top {
+    bottom: 125px;
+    transform: rotateX(90deg);
 }
-#bottom
-{
-    top: 125px; 
-    transform: rotateX(90deg); 
+#Bottom {
+    top: 125px;
+    transform: rotateX(90deg);
+}
+
+input{
+    height : 50px; 
+    width: 100px; 
+    background: pink; 
+    border : none; 
+    font-size: 22px; 
+    cursor: pointer; 
+    position: absolute; 
+    top: -100px; 
+    left: 175px; 
+
 }
