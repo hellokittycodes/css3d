@@ -1,15 +1,27 @@
+var isMouseDown = false;
+
 function rotateCube(e) {
-    var cube = document.getElementById("cube"); // Change getElementsByClassName to getElementById
-    var x = e.clientX - window.innerWidth / 2;
-    var y = e.clientY - window.innerHeight / 2;
-    var q = 0.15;
+    if (!isMouseDown) return;
 
-    x = x * q * 1.25;
-    y = -y * q * 1.25;
+    var cube = document.getElementById("cube");
+    var currentRotation = cube.style.transform || "rotateY(0deg) rotateX(0deg)";
 
-    cube.style.transform = "rotateY(" + x + "deg) rotateX(" + y + "deg)";
+    var match = currentRotation.match(/rotateY\(([^)]+)\) rotateX\(([^)]+)\)/);
+    var currentX = match ? parseFloat(match[2]) : 0;
+    var currentY = match ? parseFloat(match[1]) : 0;
+
+    var newX = currentX + e.movementY * 0.1; // Adjust sensitivity as needed
+    var newY = currentY + e.movementX * 0.1; // Adjust sensitivity as needed
+
+    cube.style.transform = "rotateY(" + newY + "deg) rotateX(" + newX + "deg)";
 }
 
-document.addEventListener("mousemove", rotateCube);
+document.addEventListener("mousedown", function () {
+    isMouseDown = true;
+});
 
- 
+document.addEventListener("mouseup", function () {
+    isMouseDown = false;
+});
+
+document.addEventListener("mousemove", rotateCube);
