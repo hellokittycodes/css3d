@@ -3,7 +3,7 @@ var startX, startY;
 var startRotX = 0;
 var startRotY = 0;
 
-var cube = document.getElementById("cube"); // Use ID "cube"
+var cube = document.getElementById("cube");
 
 function handleMouseDown(e) {
     isMouseDown = true;

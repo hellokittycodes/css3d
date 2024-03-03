@@ -20,43 +20,29 @@ body{
 }
 
 .box {
-    /* ... Existing styles ... */
-    --rotateX: 0deg; /* Add this line */
-    --rotateY: 0deg; /* Add this line */
-    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY));
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
  }
-
-@keyframes animate {
-    0% {
-        transform: rotateX(45deg) rotateY(-45deg);
-    }
-    25% {
-        transform: rotateX(-45deg) rotateY(-45deg);
-    }
-    50% {
-        transform: rotateX(45deg) rotateY(45deg);
-    }
-    75% {
-        transform: rotateX(-45deg) rotateY(45deg);
-    }
-    100% {
-        transform: rotateX(45deg) rotateY(-45deg);
-    }
-}
-
-.card 
-{
-    height:250px; 
-    width:250px; 
-    text-align : center; 
-    padding: 100px 0px; 
-    color: white; 
-    background: black; 
-    border: 2px solid white; 
-    font-size: 32px; 
-    box-sizing: border-box; 
-    position : absolute; 
-}
+ 
+ /* Remove the keyframes animation */
+ 
+ .card {
+    height: 250px;
+    width: 250px;
+    text-align: center;
+    padding: 100px 0px;
+    color: white;
+    background: black;
+    border: 2px solid white;
+    font-size: 32px;
+    box-sizing: border-box;
+    position: absolute;
+ }
 #Front {
     transform: translateZ(125px);
 }
