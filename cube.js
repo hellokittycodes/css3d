@@ -1,27 +1,35 @@
 var isMouseDown = false;
+var startX, startY;
+var startRotX = 0;
+var startRotY = 0;
 
-function rotateCube(e) {
-    if (!isMouseDown) return;
+var cube = document.getElementById("cube"); // Use ID "cube"
 
-    var cube = document.getElementById("cube");
-    var currentRotation = cube.style.transform || "rotateY(0deg) rotateX(0deg)";
-
-    var match = currentRotation.match(/rotateY\(([^)]+)\) rotateX\(([^)]+)\)/);
-    var currentX = match ? parseFloat(match[2]) : 0;
-    var currentY = match ? parseFloat(match[1]) : 0;
-
-    var newX = currentX + e.movementY * 0.1; // Adjust sensitivity as needed
-    var newY = currentY + e.movementX * 0.1; // Adjust sensitivity as needed
-
-    cube.style.transform = "rotateY(" + newY + "deg) rotateX(" + newX + "deg)";
+function handleMouseDown(e) {
+    isMouseDown = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    startRotX = parseInt(getComputedStyle(cube).getPropertyValue('--rotateX')) || 0;
+    startRotY = parseInt(getComputedStyle(cube).getPropertyValue('--rotateY')) || 0;
 }
 
-document.addEventListener("mousedown", function () {
-    isMouseDown = true;
-});
-
-document.addEventListener("mouseup", function () {
+function handleMouseUp() {
     isMouseDown = false;
-});
+}
 
-document.addEventListener("mousemove", rotateCube);
+function handleMouseMove(e) {
+    if (!isMouseDown) return;
+
+    var deltaX = e.clientX - startX;
+    var deltaY = e.clientY - startY;
+
+    var newRotX = startRotX + deltaY;
+    var newRotY = startRotY - deltaX;
+
+    cube.style.setProperty('--rotateX', newRotX + 'deg');
+    cube.style.setProperty('--rotateY', newRotY + 'deg');
+}
+
+cube.addEventListener("mousedown", handleMouseDown);
+document.addEventListener("mouseup", handleMouseUp);
+document.addEventListener("mousemove", handleMouseMove);
