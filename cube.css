@@ -6,41 +6,58 @@
 }
 body{
     height:100vh; 
-    background: radial-gradient(rgb(224, 55, 151), #f9054e, #ffa3cb)
+    background: radial-gradient((#f019be), #ee8abe, rgb(252, 63, 104)); 
 }
 .container
 {
     height: 60vh; 
     width: 30vw; 
-    position: relative;  
+    position: absolute;  
     top: 50vh; 
     left: 50vw; 
     transform: translate(-50%, -50%); 
     perspective: 1000px; 
 }
-
 .box {
     height: 250px;
     width: 250px;
     position: absolute;
     top: 100px;
     left: 100px;
- }
- 
- /* Remove the keyframes animation */
- 
- .card {
-    height: 250px;
-    width: 250px;
-    text-align: center;
-    padding: 100px 0px;
-    color: white;
-    background: black;
-    border: 2px solid white;
-    font-size: 32px;
-    box-sizing: border-box;
-    position: absolute;
- }
+    transform-style: preserve-3d;
+    animation: animate 5s infinite;
+    transform: rotateX(45deg) rotateY(-45deg); /* Add initial rotation */
+}
+@keyframes animate {
+    0% {
+        transform: rotateX(45deg) rotateY(-45deg);
+    }
+    25% {
+        transform: rotateX(-45deg) rotateY(-45deg);
+    }
+    50% {
+        transform: rotateX(45deg) rotateY(45deg);
+    }
+    75% {
+        transform: rotateX(-45deg) rotateY(45deg);
+    }
+    100% {
+        transform: rotateX(45deg) rotateY(-45deg);
+    }
+}
+.card 
+{
+    height:250px; 
+    width:250px; 
+    text-align : center; 
+    padding: 100px 0px; 
+    color: white; 
+    background: black; 
+    border: 2px solid white; 
+    font-size: 32px; 
+    box-sizing: border-box; 
+    position : absolute; 
+}
 #Front {
     transform: translateZ(125px);
 }
@@ -63,7 +80,6 @@ body{
     top: 125px;
     transform: rotateX(90deg);
 }
-
 input{
     height : 50px; 
     width: 100px; 
@@ -74,5 +90,4 @@ input{
     position: absolute; 
     top: -100px; 
     left: 175px; 
-
 }
