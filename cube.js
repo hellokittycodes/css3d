@@ -1,34 +1,16 @@
-//commented that out let's see if attempt two works 
-/* $(document).mousemove(function(e)
+$(document).ready(function () 
 {
-    var cube = document.getElementById("cube");
-    $( "#box" ).on( "mousemove", function() 
+    var rotation = 0;
+ 
+    $('.box').mousemove(function (e) 
     {
-        $( ".card" ).first().animate(
-        {
-         //i want it to rotate here 
-        }, 
-        {
-        duration: 1000,
-        step: function( now, fx )
-        {
-            //idk what to do here but it's a start 
-        }
-        });
+       var centerX = $(this).width() / 2;
+       var mouseY = e.pageX - $(this).offset().left;
+       var rotateValue = (mouseY - centerX) / 5;
+       var centerY = $(this).width() / 2;
+       var mouseX = e.pageY - $(this).offset().left;
+       var rotateValue = (mouseX - centerY) / 5;
+       $(this).css('transform', 'rotateY(' + rotateValue + 'deg)');
+       $(this).css('transform', 'rotateX(' + rotateValue + 'deg)');
     });
-}); */ 
-
-// ATTEMPT TWO 
-jQuery.fn.rotate = function(degrees) {
-    $(this).css({'transform' : 'rotate('+ degrees +'deg)'});
-    return $(this);
-};
-
-$('.box').mousemove(function(e)
-{
-    $('.rotate;').animate
-    ({ 
-        //idk what to do here 
-    })
-
 }); 
