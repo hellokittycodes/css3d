@@ -8,16 +8,6 @@ body{
     height:100vh; 
     background: radial-gradient((#f019be), #ee8abe, rgb(252, 63, 104)); 
 }
-.container
-{
-    height: 60vh; 
-    width: 30vw; 
-    position: absolute;  
-    top: 50vh; 
-    left: 50vw; 
-    transform: translate(-50%, -50%); 
-    perspective: 1000px; 
-}
 .box {
     height: 250px;
     width: 250px;
